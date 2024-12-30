@@ -5,5 +5,27 @@ description: A Helm chart for Eclipse Mosquitto
 type: application
 version: 0.1.0
 appVersion: "2.0.20"
+home: https://github.com/vicsufer/charts/tree/master/charts/mosquitto
+icon: https://raw.githubusercontent.com/eclipse/mosquitto/master/logo/mosquitto-logo-min.svg
 sources:
   - https://github.com/eclipse-mosquitto/mosquitto
+keywords:
+  - mosquitto
+  - MQTT
+  - eclipse-iot
+
+annotations:
+  artifacthub.io/links: |
+    - name: Chart Source
+      url: https://github.com/vicsufer/charts/tree/master/charts/mosquitto
+    - name: Upstream Project
+      url: https://github.com/eclipse-mosquitto/mosquitto
+  artifacthub.io/category: streaming-messaging
+  artifacthub.io/maintainers: |
+    - name: vicsufer
+  artifacthub.io/operator: "false"
+  artifacthub.io/prerelease: "false"
+  artifacthub.io/containsSecurityUpdates: "false"
+  artifacthub.io/signKey: |
+    fingerprint: 1C2692BCB57D5153875BBB01CEAC618DF9046E80
+    url: https://keybase.io/vicsufer/pgp_keys.asc
