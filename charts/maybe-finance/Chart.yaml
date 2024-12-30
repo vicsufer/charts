@@ -4,11 +4,9 @@ name: maybe-finance
 description: A Helm chart for deploying maybe-finance into kubernetes clusters
 type: application
 version: 0.1.0
-
 appVersion: "v0.0.2"
 sources:
   - https://github.com/maybe-finance/maybe
-
 dependencies:
   - name: postgresql
     version: 15.5.38
