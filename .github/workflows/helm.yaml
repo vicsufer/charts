@@ -22,7 +22,7 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
-      - na--pinentry-mode loopbackme: Import GPG key
+      - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@v6.1.0
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
