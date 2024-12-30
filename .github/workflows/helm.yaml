@@ -28,7 +28,7 @@ jobs:
           fingerprint: 1C2692BCB57D5153875BBB01CEAC618DF9046E80
 
       - name: Export GPG key to legacy format
-        run: gpg --export-secret-keys > ~/.gnupg/pubring.gpg
+        run: gpg --export-secret-keys 1C2692BCB57D5153875BBB01CEAC618DF9046E80 > ~/.gnupg/pubring.gpg
 
       - name: Install Helm
         uses: azure/setup-helm@v3
