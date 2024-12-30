@@ -27,7 +27,6 @@ jobs:
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
-          fingerprint: $GPG_FINGERPRING
 
       - name: Export GPG key to legacy format
         run: gpg --batch --pinentry-mode loopback --passphrase "${{ secrets.GPG_PASSPHRASE }}" --export-secret-keys > ~/.gnupg/pubring.gpg
