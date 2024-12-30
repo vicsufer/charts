@@ -25,9 +25,7 @@ jobs:
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
-
-      - name: Export GPG key to legacy format
-        run: gpg --export-secret-keys > ~/.gnupg/pubring.gpg
+          fingerprint: 1C2692BCB57D5153875BBB01CEAC618DF9046E80
 
       - name: Install Helm
         uses: azure/setup-helm@v3
