@@ -13,7 +13,7 @@ helm repo add vicsufer https://charts.vicsufer.dev/
 helm repo update
 ```
 
-Verify charts are installable
+Verify the repository is ready.
 
 ```bash
 helm search repo vicsufer
