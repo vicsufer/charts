@@ -9,8 +9,6 @@ jobs:
     permissions:
       contents: write
     runs-on: ubuntu-24.04
-    env:
-      GPG_FINGERPRING: 1C2692BCB57D5153875BBB01CEAC618DF9046E80
     steps:
       - name: Checkout
         uses: actions/checkout@v3
