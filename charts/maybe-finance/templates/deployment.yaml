@@ -39,12 +39,12 @@ spec:
           {{- if .Values.deployment.extraEnvVarsCM }}
           envFrom:
             - configMapRef:
-                name: {{ include "common.tplvalues.render" (dict "value" .Values.extraEnvVarsCM "context" $) }}
+                name: {{ .Values.deployment.extraEnvVarsCM  }}
           {{- end }}
           {{- if .Values.deployment.extraEnvVarsSecret }}
           envFrom:
             - secretRef:
-                name: {{ include "common.tplvalues.render" (dict "value" .Values.extraEnvVarsSecret "context" $) }}
+                name: {{ .Values.deployment.extraEnvVarsSecret }}
           {{- end }}
           ports:
             - containerPort: {{ .Values.deployment.port }}
