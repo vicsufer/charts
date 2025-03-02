@@ -48,6 +48,12 @@ spec:
           {{- end }}
           ports:
             - containerPort: {{ .Values.deployment.port }}
+          {{- if .Values.deployment.securityContext }}
+          securityContext:
+              {{- with .Values.deployment.securityContext }}
+              {{- toYaml . | nindent 14 }}
+              {{- end }}
+          {{- end }}
           readinessProbe:
             tcpSocket:
               port: {{ .Values.deployment.port }}
@@ -71,3 +77,9 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: data-{{ .Release.Name }}
+      {{- if .Values.deployment.podSecurityContext }}
+      securityContext:
+          {{- with .Values.deployment.podSecurityContext }}
+          {{- toYaml . | nindent 10 }}
+          {{- end }}
+      {{- end }}
