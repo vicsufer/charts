@@ -9,6 +9,13 @@ deployment:
   revisionHistoryLimit: 3
   port: 3000
   pullPolicy: IfNotPresent
+  podSecurityContext:
+    fsGroup: 1000
+    runAsUser: 1000
+    runAsGroup: 1000
+    runAsNonRoot: true
+  securityContext:
+    allowPrivilegeEscalation: false
   extraEnvVarsCM: ""
   extraEnvVarsSecret: ""
   env: [] # https://github.com/maybe-finance/maybe/blob/main/.env.example
