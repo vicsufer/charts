@@ -133,6 +133,39 @@ entries:
         url: https://keybase.io/vicsufer/pgp_keys.asc
     apiVersion: v2
     appVersion: 2.0.20
+    created: "2025-04-05T09:46:23.290242693Z"
+    description: A Helm chart for Eclipse Mosquitto
+    digest: 66d56e7dacaf7bda39eaaf5160039f7a09968c47fa84a76c01aa423717c01860
+    home: https://github.com/vicsufer/charts/tree/master/charts/mosquitto
+    icon: https://raw.githubusercontent.com/eclipse/mosquitto/master/logo/mosquitto-logo-min.svg
+    keywords:
+    - mosquitto
+    - MQTT
+    - eclipse-iot
+    name: mosquitto
+    sources:
+    - https://github.com/eclipse-mosquitto/mosquitto
+    type: application
+    urls:
+    - https://github.com/vicsufer/charts/releases/download/mosquitto-0.1.1/mosquitto-0.1.1.tgz
+    version: 0.1.1
+  - annotations:
+      artifacthub.io/category: streaming-messaging
+      artifacthub.io/containsSecurityUpdates: "false"
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/vicsufer/charts/tree/master/charts/mosquitto
+        - name: Upstream Project
+          url: https://github.com/eclipse-mosquitto/mosquitto
+      artifacthub.io/maintainers: |
+        - name: vicsufer
+      artifacthub.io/operator: "false"
+      artifacthub.io/prerelease: "false"
+      artifacthub.io/signKey: |
+        fingerprint: 1C2692BCB57D5153875BBB01CEAC618DF9046E80
+        url: https://keybase.io/vicsufer/pgp_keys.asc
+    apiVersion: v2
+    appVersion: 2.0.20
     created: "2024-12-30T21:21:23.999039126Z"
     description: A Helm chart for Eclipse Mosquitto
     digest: 257f21577bd51730a0f6c3e52841b4180284caa3ee11e60080665e8a44ef4894
@@ -149,4 +182,4 @@ entries:
     urls:
     - https://github.com/vicsufer/charts/releases/download/mosquitto-0.1.0/mosquitto-0.1.0.tgz
     version: 0.1.0
-generated: "2025-03-02T10:33:31.002058776Z"
+generated: "2025-04-05T09:46:23.290255447Z"
