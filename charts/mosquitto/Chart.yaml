@@ -3,7 +3,7 @@ apiVersion: v2
 name: mosquitto
 description: A Helm chart for Eclipse Mosquitto
 type: application
-version: 0.1.0
+version: 0.1.1
 appVersion: "2.0.20"
 home: https://github.com/vicsufer/charts/tree/master/charts/mosquitto
 icon: https://raw.githubusercontent.com/eclipse/mosquitto/master/logo/mosquitto-logo-min.svg
