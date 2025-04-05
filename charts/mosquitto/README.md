@@ -1,7 +1,7 @@
 # Mosquitto Kubernetes Helm Chart
 
 A Kubernetes Helm Chart for Mosquitto.
-Based on[SINTEF/mosquitto-helm-chart](https://github.com/SINTEF/mosquitto-helm-chart)
+Based on [SINTEF/mosquitto-helm-chart](https://github.com/SINTEF/mosquitto-helm-chart)
 
 ## Installation
 

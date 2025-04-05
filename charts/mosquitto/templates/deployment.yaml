@@ -55,9 +55,9 @@ spec:
               mountPath: /mosquitto/config/acl.conf
               subPath: acl.conf
               readOnly: true
+            {{- end }}
             {{- with .Values.deployment.volumeMounts }}
                 {{- toYaml . | nindent 12 }}
-            {{- end }}
             {{- end }}
           livenessProbe:
             tcpSocket:
