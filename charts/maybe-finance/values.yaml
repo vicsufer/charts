@@ -4,7 +4,7 @@ service:
 
 deployment:
   repository: ghcr.io/maybe-finance/maybe
-  tag: 0.4.3
+  tag: 0.5.0
   replicaCount: 1
   revisionHistoryLimit: 3
   port: 3000
@@ -18,17 +18,26 @@ deployment:
     allowPrivilegeEscalation: false
   extraEnvVarsCM: ""
   extraEnvVarsSecret: ""
-  env: [] # https://github.com/maybe-finance/maybe/blob/main/.env.example
+  env: #[] # https://github.com/maybe-finance/maybe/blob/main/.env.example
     # - name: RAILS_ASSUME_SSL
     #   value: false
     # - name: RAILS_FORCE_SSL
     #   value: false
     # - name: GOOD_JOB_EXECUTION_MODE
     #   value: async
-    # - name: SECRET_KEY_BASE
-    #   value: "<YourSecretKeyBase>"
-    # - name: SELF_HOSTING_ENABLED
-    #   value: true
+    - name: SECRET_KEY_BASE # Required
+      value: "a7523c3d0ae56415046ad8abae168d71074a79534a7062258f8d1d51ac2f76d3c3bc86d86b6b0b307df30d9a6a90a2066a3fa9e67c5e6f374dbd7dd4e0778e13"
+    - name: SELF_HOSTING_ENABLED # Required
+      value: "true"
+
+redis:
+  enabled: true
+  auth:
+    enabled: true
+    password: redis-password
+  replica:
+    replicaCount: 1
+
 
 storage:
   accessModes: ReadWriteOnce
@@ -46,8 +55,8 @@ postgresql:
 
 ingress:
   create: false
-  annotations: {}
-    # cert-manager.io/cluster-issuer: ""
+  annotations: { }
+  # cert-manager.io/cluster-issuer: ""
   tls:
     - secretName: maybe-general-tls
       hosts:
@@ -58,7 +67,7 @@ ingress:
         - path: /
           pathType: ImplementationSpecific
 
-extraObjects: []
+extraObjects: [ ]
 # - |
 #   apiVersion: bitnami.com/v1alpha1
 #   kind: SealedSecret
