@@ -25,7 +25,7 @@ spec:
             - name: {{ .name }}
               value: {{ .value | quote }}
             {{- end }}
-            - name: DB_HOST 
+            - name: DB_HOST
               value: {{ .Release.Name }}-postgresql
             - name: POSTGRES_DB
               value: {{ .Values.postgresql.auth.database }}
@@ -36,6 +36,17 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.postgresql.auth.existingSecret | default (printf "%s-postgresql" .Release.Name) }}
                   key: password
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-redis
+                  key: {{ .Values.redis.auth.password | default "redis-password" }}
+            - name: REDIS_URL
+              {{- if .Values.redis.auth.enabled}}
+              value: redis://redis:$(REDIS_PASSWORD)@$(REDIS_HOST):6379/0
+              {{- else }}
+              value: redis://:@$(REDIS_HOST):6379/0
+              {{- end }}
           {{- if .Values.deployment.extraEnvVarsCM }}
           envFrom:
             - configMapRef:
