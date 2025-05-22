@@ -17,6 +17,48 @@ entries:
         fingerprint: 1C2692BCB57D5153875BBB01CEAC618DF9046E80
         url: https://keybase.io/vicsufer/pgp_keys.asc
     apiVersion: v2
+    appVersion: 0.5.0
+    created: "2025-05-22T22:32:51.861680913Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 15.5.38
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 21.0.2
+    description: A Helm chart for deploying maybe-finance into kubernetes clusters
+    digest: f836bbe927c34d54da794472f7510cd1500dd63d0d8eba940009578b8bd9c7e7
+    home: https://github.com/vicsufer/charts/tree/master/charts/maybe-finance
+    icon: https://avatars.githubusercontent.com/u/80786585?s=200&v=4
+    keywords:
+    - maybe-finance
+    - budget
+    - finance
+    name: maybe-finance
+    sources:
+    - https://github.com/maybe-finance/maybe
+    type: application
+    urls:
+    - https://github.com/vicsufer/charts/releases/download/maybe-finance-0.2.0/maybe-finance-0.2.0.tgz
+    version: 0.2.0
+  - annotations:
+      artifacthub.io/category: streaming-messaging
+      artifacthub.io/containsSecurityUpdates: "false"
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/vicsufer/charts/tree/master/charts/maybe-finance
+        - name: Upstream Project
+          url: https://github.com/maybe-finance/maybe
+      artifacthub.io/maintainers: |
+        - name: vicsufer
+      artifacthub.io/operator: "false"
+      artifacthub.io/prerelease: "false"
+      artifacthub.io/signKey: |
+        fingerprint: 1C2692BCB57D5153875BBB01CEAC618DF9046E80
+        url: https://keybase.io/vicsufer/pgp_keys.asc
+    apiVersion: v2
     appVersion: 0.4.3
     created: "2025-03-02T10:33:31.002043488Z"
     dependencies:
@@ -182,4 +224,4 @@ entries:
     urls:
     - https://github.com/vicsufer/charts/releases/download/mosquitto-0.1.0/mosquitto-0.1.0.tgz
     version: 0.1.0
-generated: "2025-04-05T09:46:23.290255447Z"
+generated: "2025-05-22T22:32:51.861704578Z"
