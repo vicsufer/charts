@@ -35,6 +35,7 @@ redis:
   auth:
     enabled: true
     password: redis-password
+  architecture: replication
   replica:
     replicaCount: 1
 
