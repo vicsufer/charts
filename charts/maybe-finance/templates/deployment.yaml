@@ -16,13 +16,14 @@ spec:
       labels:
         app: {{ .Release.Name }}
     spec:
+      terminationGracePeriodSeconds: 30
       initContainers:
         - name: worker
           image: {{ .Values.deployment.repository }}:{{ .Values.deployment.tag }}
           imagePullPolicy: {{ .Values.deployment.pullPolicy }}
           restartPolicy: Always
           command: ["bundle", "exec", "sidekiq"]
-          args: ["-t", "100"]
+          args: ["-t", "25"]
           env:
             {{- range .Values.deployment.env }}
             - name: {{ .name }}
