@@ -40,15 +40,16 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.postgresql.auth.existingSecret | default (printf "%s-postgresql" .Release.Name) }}
                   key: password
+              {{- if .Values.redis.auth.enabled}}
+            - name: REDIS_URL
+              value: redis://${REDIS_USER}:${REDIS_PASSWORD}@${REDIS_HOST}:6379/0
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ .Release.Name }}-redis
                   key: {{ .Values.redis.auth.password | default "redis-password" }}
-            - name: REDIS_URL
-              {{- if .Values.redis.auth.enabled}}
-              value: redis://${REDIS_USER}:${REDIS_PASSWORD}@${REDIS_HOST}:6379/0
               {{- else }}
+            - name: REDIS_URL
               value: redis://${REDIS_HOST}:6379/0
               {{- end }}
           {{- if .Values.deployment.extraEnvVarsCM }}
