@@ -3,7 +3,7 @@ apiVersion: v2
 name: maybe-finance
 description: A Helm chart for deploying maybe-finance into kubernetes clusters
 type: application
-version: 0.2.2
+version: 0.2.3
 appVersion: "0.5.0"
 home: https://github.com/vicsufer/charts/tree/master/charts/maybe-finance
 icon: https://avatars.githubusercontent.com/u/80786585?s=200&v=4
