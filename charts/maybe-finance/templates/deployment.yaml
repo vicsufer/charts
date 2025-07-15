@@ -72,10 +72,6 @@ spec:
           image: {{ .Values.deployment.repository }}:{{ .Values.deployment.tag }}
           imagePullPolicy: {{ .Values.deployment.pullPolicy }}
           env:
-            {{- range .Values.deployment.env }}
-            - name: {{ .name }}
-              value: {{ .value | quote }}
-            {{- end }}
             - name: DB_HOST
               value: {{ .Release.Name }}-postgresql
             - name: POSTGRES_DB
@@ -98,6 +94,10 @@ spec:
               {{- else }}
               value: redis://:@$(REDIS_HOST):6379/0
               {{- end }}
+            {{- range .Values.deployment.env }}
+            - name: {{ .name }}
+              value: {{ .value | quote }}
+            {{- end }}
           {{- if .Values.deployment.extraEnvVarsCM }}
           envFrom:
             - configMapRef:
