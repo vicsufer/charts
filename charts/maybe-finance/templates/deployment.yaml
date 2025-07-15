@@ -47,9 +47,9 @@ spec:
                   key: {{ .Values.redis.auth.password | default "redis-password" }}
             - name: REDIS_URL
               {{- if .Values.redis.auth.enabled}}
-              value: redis://:$(REDIS_PASSWORD)@$(REDIS_HOST):6379/0
+              value: redis://${REDIS_USER}:${REDIS_PASSWORD}@${REDIS_HOST}:6379/0
               {{- else }}
-              value: redis://:@$(REDIS_HOST):6379/0
+              value: redis://${REDIS_HOST}:6379/0
               {{- end }}
           {{- if .Values.deployment.extraEnvVarsCM }}
           envFrom:
