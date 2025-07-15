@@ -41,16 +41,11 @@ spec:
                   name: {{ .Values.postgresql.auth.existingSecret | default (printf "%s-postgresql" .Release.Name) }}
                   key: password
               {{- if .Values.redis.auth.enabled}}
-            - name: REDIS_URL
-              value: redis://${REDIS_USER}:${REDIS_PASSWORD}@${REDIS_HOST}:6379/0
-            - name: REDIS_PASSWORD
+             name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ .Release.Name }}-redis
                   key: {{ .Values.redis.auth.password | default "redis-password" }}
-              {{- else }}
-            - name: REDIS_URL
-              value: redis://${REDIS_HOST}:6379/0
               {{- end }}
           {{- if .Values.deployment.extraEnvVarsCM }}
           envFrom:
@@ -84,18 +79,13 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.postgresql.auth.existingSecret | default (printf "%s-postgresql" .Release.Name) }}
                   key: password
+              {{- if .Values.redis.auth.enabled}}
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ .Release.Name }}-redis
-                  key: {{ .Values.redis.auth.password | default "redis-password" }}
-            - name: REDIS_URL
-              {{- if .Values.redis.auth.enabled}}
-              value: redis://:$(REDIS_PASSWORD)@$(REDIS_HOST):6379/0
-              {{- else }}
-              value: redis://:@$(REDIS_HOST):6379/0
+                  key: {{ .Values.redis.auth.password | default "redis-password" }}redis://:@$(REDIS_HOST):6379/0
               {{- end }}
-            {{- range .Values.deployment.env }}
             - name: {{ .name }}
               value: {{ .value | quote }}
             {{- end }}
