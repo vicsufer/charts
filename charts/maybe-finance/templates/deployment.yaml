@@ -37,7 +37,7 @@ spec:
                   name: {{ .Values.postgresql.auth.existingSecret | default (printf "%s-postgresql" .Release.Name) }}
                   key: password
               {{- if .Values.redis.auth.enabled}}
-             name: REDIS_PASSWORD
+            - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ .Release.Name }}-redis
